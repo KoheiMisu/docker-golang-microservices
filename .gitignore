@@ -1,0 +1,9 @@
+/data/init.d/*
+/data/mysql/*
+/node-apps/*
+/go-apps/*
+!/go-apps/.gitkeep
+!/node-apps/.gitkeep
+!/data/.gitkeep
+!/data/init.d/.gitkeep
+!/data/mysql/.gitkeep
