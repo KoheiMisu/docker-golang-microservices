@@ -9,6 +9,10 @@ services:
       volumes:
         - ./data/mysql:/var/lib/mysql
         - ./data/init.d:/docker-entrypoint-initdb.d
+  mongo:
+      image: mongo:3.3.15
+      volumes:
+        - ./data/mongo:/data/db
   golang:
       build: ./docker-configs/golang
       ports:
@@ -19,11 +23,13 @@ services:
         - mysql
       links:
           - mysql
+          - mongo
       tty: true
   node:
       build: ./docker-configs/node
       ports:
           - '8080:8080'
+          - '3000:3000'
       volumes:
           - ./node-apps:/var/www
       links:
